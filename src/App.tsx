@@ -14,9 +14,12 @@ export const App: React.FC<AppProps> = () => {
         </header>
         <main>
           <h1>Como está o tempo hoje?</h1>
+          <input
+            id="autocomplete"
+            type="text"
+            placeholder="Digite o nome da cidade"
+          />
         </main>
-
-        <script></script>
       </div>
     </>
   )
