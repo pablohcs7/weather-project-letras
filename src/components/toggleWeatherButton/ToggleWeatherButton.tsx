@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './toggleWeatherButton.css'
+import './ToggleWeatherButton.css'
 
 interface ToggleWeatherButtonProps {}
 
