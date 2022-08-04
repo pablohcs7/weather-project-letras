@@ -6,11 +6,20 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
 
 interface AutocompleteInputProps {}
 
-//componente responsável por gerar o campo que renderiza o autocomplete
+//componente responsável por gerar o campo que renderiza o autocomplete e retorna a latitude e longitude da cidade selecionada
 export const AutocompleteInput: React.FC<AutocompleteInputProps> = () => {
   const [address, setAddress] = useState('')
+  const [coordinates, setCoordinates] = useState({
+    lat: 0,
+    lng: 0
+  })
 
-  const handleSelect = async (value: any) => {}
+  const handleSelect = async (value: any) => {
+    const results = await geocodeByAddress(value)
+    const latLng = await getLatLng(results[0])
+    setAddress(value)
+    setCoordinates(latLng)
+  }
 
   return (
     <div>
@@ -28,7 +37,11 @@ export const AutocompleteInput: React.FC<AutocompleteInputProps> = () => {
               {loading ? <div>...Loading</div> : null}
 
               {suggestions.map((suggestion) => {
-                return <div>{suggestion.description}</div>
+                return (
+                  <div {...getSuggestionItemProps(suggestion)}>
+                    {suggestion.description}
+                  </div>
+                )
               })}
             </div>
           </div>
