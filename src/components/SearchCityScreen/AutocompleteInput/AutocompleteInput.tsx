@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 
-import PlacesAutocomplete from 'react-places-autocomplete'
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng
+} from 'react-places-autocomplete'
 
-import { geocodeByAddress, getLatLng } from 'react-places-autocomplete'
+import './AutocompleteInput.css'
 
 interface AutocompleteInputProps {}
 
@@ -13,6 +16,11 @@ export const AutocompleteInput: React.FC<AutocompleteInputProps> = () => {
     lat: 0,
     lng: 0
   })
+
+  //faz o autocomplete mostrar apenas cidades
+  const searchOptions = {
+    types: ['(cities)']
+  }
 
   const handleSelect = async (value: any) => {
     const results = await geocodeByAddress(value)
@@ -27,18 +35,24 @@ export const AutocompleteInput: React.FC<AutocompleteInputProps> = () => {
         value={address}
         onChange={setAddress}
         onSelect={handleSelect}
+        searchOptions={searchOptions}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
+          <div className="autocomplete">
             <input
+              id="city"
               {...getInputProps({ placeholder: 'Digite o nome da cidade' })}
             />
-            <div>
+
+            <div id="suggestion-list">
               {loading ? <div>...Loading</div> : null}
 
               {suggestions.map((suggestion) => {
                 return (
-                  <div {...getSuggestionItemProps(suggestion)}>
+                  <div
+                    className="suggestion"
+                    {...getSuggestionItemProps(suggestion)}
+                  >
                     {suggestion.description}
                   </div>
                 )

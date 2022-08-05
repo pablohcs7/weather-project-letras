@@ -2,6 +2,8 @@ import React from 'react'
 import { ToggleWeatherButton } from '../ToggleWeatherButton/ToggleWeatherButton'
 import { AutocompleteInput } from './AutocompleteInput/AutocompleteInput'
 
+import './SearchCityScreen.css'
+
 interface SearchCityScreenProps {}
 
 export const SearchCityScreen: React.FC<SearchCityScreenProps> = () => {
@@ -11,12 +13,12 @@ export const SearchCityScreen: React.FC<SearchCityScreenProps> = () => {
         <header className="header">
           <ToggleWeatherButton />
         </header>
-        <main className="container">
+        <main className="content">
           <h1>Como está o tempo hoje?</h1>
           <AutocompleteInput />
         </main>
         <footer>
-          <div className="select-lang-button">
+          <div className="select-lang-buttons">
             <img
               src="src\assets\brazil.png"
               alt="bandeira do Brasil"
@@ -33,7 +35,7 @@ export const SearchCityScreen: React.FC<SearchCityScreenProps> = () => {
               height={20}
             />
           </div>
-          <div>Idioma selecionado: Português</div>
+          <div className="selected-language">Idioma selecionado: Português</div>
         </footer>
       </div>
     </>

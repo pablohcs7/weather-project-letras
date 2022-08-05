@@ -1,0 +1,44 @@
+/****HEADER****/
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 1.25rem 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.container .header {
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+/****MAIN****/
+.container .content {
+  max-height: 100px;
+}
+
+.content h1 {
+  font-weight: 700;
+  font-size: 1.875rem;
+}
+
+/****FOOTER****/
+.container footer {
+  padding-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+footer .select-lang-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3px;
+}
+
+footer .selected-language {
+  font-size: 0.625rem;
+}

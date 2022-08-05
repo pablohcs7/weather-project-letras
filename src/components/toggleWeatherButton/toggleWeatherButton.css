@@ -8,6 +8,8 @@
 .button-container {
   display: flex;
   gap: 0.3rem;
+  align-items: center;
+  font-size: 12px;
 }
 
 /* Hide default HTML checkbox */

@@ -6,8 +6,18 @@
   font: inherit;
   vertical-align: baseline;
   list-style: none;
+  box-sizing: border-box;
+  outline: 0;
+  max-width: 100vw;
 }
 
 body {
   font: 400 1rem 'Montserrat', sans-serif;
+
+  color: rgba(255, 255, 255, 1);
+
+  background-image: url('src/assets/sky.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }
