@@ -4,18 +4,29 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from 'react-places-autocomplete'
+import { useNavigate } from 'react-router-dom'
 
 import './AutocompleteInput.css'
 
 interface AutocompleteInputProps {}
 
+interface CoordinatesProps {
+  lat: number
+  lng: number
+}
+
 //componente responsável por gerar o campo que renderiza o autocomplete e retorna a latitude e longitude da cidade selecionada
 export const AutocompleteInput: React.FC<AutocompleteInputProps> = () => {
+  const navigate = useNavigate()
+
+  function handleClick(coordinates: CoordinatesProps) {
+    const lat = coordinates.lat.toString()
+    const lng = coordinates.lng.toString()
+
+    navigate(`/result/${lat}/${lng}`)
+  }
+
   const [address, setAddress] = useState('')
-  const [coordinates, setCoordinates] = useState({
-    lat: 0,
-    lng: 0
-  })
 
   //faz o autocomplete mostrar apenas cidades
   const searchOptions = {
@@ -26,7 +37,8 @@ export const AutocompleteInput: React.FC<AutocompleteInputProps> = () => {
     const results = await geocodeByAddress(value)
     const latLng = await getLatLng(results[0])
     setAddress(value)
-    setCoordinates(latLng)
+    // setCoordinates(latLng)
+    handleClick(latLng)
   }
 
   return (

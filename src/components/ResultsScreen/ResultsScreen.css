@@ -1,0 +1,76 @@
+/****HEADER****/
+.results-container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 1.25rem 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.results-container .results-header {
+  padding-top: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/****MAIN****/
+.results-content .city {
+  font-weight: 700;
+  font-size: 1.875rem;
+}
+
+.results-content .description {
+  font-size: 0.875rem;
+  margin-top: 0.3rem;
+}
+
+.results-content .temperature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.625rem;
+}
+
+.temperature .value {
+  font-size: 3rem;
+}
+
+.results-content .min-max {
+  margin-top: 0.3rem;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.min-max span {
+  font-weight: bold;
+}
+
+.results-content a {
+  color: rgba(255, 255, 255, 0.77);
+  font-size: 0.75rem;
+}
+
+/****FOOTER****/
+.results-container footer {
+  padding-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+footer .select-lang-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 3px;
+}
+
+footer .selected-language {
+  font-size: 0.625rem;
+}

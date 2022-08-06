@@ -38,3 +38,10 @@
 #suggestion-list .suggestion:last-child:hover {
   border-radius: 0 0 0.625rem 0.625rem;
 }
+
+/****RESPONSIVITY****/
+@media (min-width: 992px) {
+  .autocomplete {
+    font-size: 1.25rem;
+  }
+}

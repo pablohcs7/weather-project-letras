@@ -1,14 +1,17 @@
 import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 import './App.css'
-import { SearchCityScreen } from './components/SearchCityScreen/SearchCityScreen'
+import { RoutesList } from './RoutesList'
 
 interface AppProps {}
 
 export const App: React.FC<AppProps> = () => {
   return (
     <>
-      <SearchCityScreen />
+      <BrowserRouter>
+        <RoutesList />
+      </BrowserRouter>
     </>
   )
 }
